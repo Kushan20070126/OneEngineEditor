@@ -9,15 +9,16 @@ int CALLBACK WinMain(
 {
 	try
 	{
-		Window wnd( 1080,720,"OneEngine Editor 0.1v" );
+		Window wnd(1080, 720, "OneEngine Editor 0.1v");
 
 		MSG msg;
 		BOOL gResult;
-		while( (gResult = GetMessage( &msg,nullptr,0,0 )) > 0 )
+		int mousecounter = 0;
+		while ((gResult = GetMessage(&msg, nullptr, 0, 0)) > 0)
 		{
 			// TranslateMessage will post auxilliary WM_CHAR messages from key msgs
-			TranslateMessage( &msg );
-			DispatchMessage( &msg );
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
 
 			if (wnd.kdb.KeyIsPressed(VK_SPACE)) {
 				MessageBox(nullptr, "Something Happond!", "Space key was Pressed", MB_OK);
@@ -33,30 +34,51 @@ int CALLBACK WinMain(
 			while (!wnd.mouse.IsEmpty()) {
 
 				const auto e = wnd.mouse.Read();
-			//	if (e.GetType() == Mouse::Event::Type::Move) {
+				//	if (e.GetType() == Mouse::Event::Type::Move) {
 
-			//		std::ostringstream oss;
-			//		oss << "Mouse Position: (" << e.GetPosX() << ", " << e.GetPosY() << ")";
-			//		wnd.SetTitle(oss.str());
+				//		std::ostringstream oss;
+				//		oss << "Mouse Position: (" << e.GetPosX() << ", " << e.GetPosY() << ")";
+				//		wnd.SetTitle(oss.str());
 
-			//	}
+				//	}
 
+				
 				switch (e.GetType())
 				{
 				case Mouse::Event::Type::Leave:
 					wnd.SetTitle("Gone !");
 					break;
+
 				case Mouse::Event::Type::Move:
 				{
 					std::ostringstream oss;
-
 					oss << "Mouse Position: (" << e.GetPosX() << ", " << e.GetPosY() << ")";
-					wnd.SetTitle(oss.str());				
+					wnd.SetTitle(oss.str());
+					break;
 				}
-				break;
+
+				case Mouse::Event::Type::WheelUp:
+				{
+					std::ostringstream oss1;
+					oss1 << "Mouse UP: " << mousecounter ++ ;
+					wnd.SetTitle(oss1.str());
+					break;
+				}
+
+				case Mouse::Event::Type::WheelDown:
+				{
+					std::ostringstream oss2;
+					oss2 << "Mouse Down: " << mousecounter --;
+					wnd.SetTitle(oss2.str());
+					break;
+
+
+				}
 				}
 			}
 		}
+	
+	
 
 
 
