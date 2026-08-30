@@ -161,6 +161,7 @@
     <Image Include="..\..\..\..\Downloads\one-engine.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="OneEngineException.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowsMessageMap.cpp" />
@@ -169,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EditorException.h" />
+    <ClInclude Include="Mouse.h" />
     <ClInclude Include="Win.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="WindowsMessageMap.h" />

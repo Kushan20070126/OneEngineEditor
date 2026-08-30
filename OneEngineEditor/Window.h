@@ -3,6 +3,7 @@
 #include "Win.h"
 #include "EditorException.h"
 #include "Keyboard.h"
+#include "Mouse.h"
 
 class Window
 {
@@ -46,6 +47,7 @@ private:
 	LRESULT HandleMsg( HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam ) noexcept;
 public:
 	Keyboard kdb;
+	Mouse mouse;
 private:
 	int width;
 	int height;

@@ -22,6 +22,10 @@ int CALLBACK WinMain(
 			if (wnd.kdb.KeyIsPressed(VK_SPACE)) {
 				MessageBox(nullptr, "Something Happond!", "Space key was Pressed", MB_OK);
 			}
+
+			if (wnd.kdb.KeyIsPressed(VK_MENU)) {
+				MessageBox(nullptr, "Something Happond!", "alt key was Pressed", MB_OK);
+			}
 		}
 
 		// check if GetMessage call itself borked
