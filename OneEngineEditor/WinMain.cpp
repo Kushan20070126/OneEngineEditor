@@ -33,12 +33,27 @@ int CALLBACK WinMain(
 			while (!wnd.mouse.IsEmpty()) {
 
 				const auto e = wnd.mouse.Read();
-				if (e.GetType() == Mouse::Event::Type::Move) {
+			//	if (e.GetType() == Mouse::Event::Type::Move) {
 
+			//		std::ostringstream oss;
+			//		oss << "Mouse Position: (" << e.GetPosX() << ", " << e.GetPosY() << ")";
+			//		wnd.SetTitle(oss.str());
+
+			//	}
+
+				switch (e.GetType())
+				{
+				case Mouse::Event::Type::Leave:
+					wnd.SetTitle("Gone !");
+					break;
+				case Mouse::Event::Type::Move:
+				{
 					std::ostringstream oss;
-					oss << "Mouse Position: (" << e.GetPosX() << ", " << e.GetPosY() << ")";
-					wnd.SetTitle(oss.str());
 
+					oss << "Mouse Position: (" << e.GetPosX() << ", " << e.GetPosY() << ")";
+					wnd.SetTitle(oss.str());				
+				}
+				break;
 				}
 			}
 		}
