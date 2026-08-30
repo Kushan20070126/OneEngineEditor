@@ -1,5 +1,5 @@
 #include "Window.h"
-
+#include <sstream> 
 
 int CALLBACK WinMain(
 	HINSTANCE hInstance,
@@ -26,7 +26,24 @@ int CALLBACK WinMain(
 			if (wnd.kdb.KeyIsPressed(VK_MENU)) {
 				MessageBox(nullptr, "Something Happond!", "alt key was Pressed", MB_OK);
 			}
+
+
+			//TODO: test ente for mouse 
+
+			while (!wnd.mouse.IsEmpty()) {
+
+				const auto e = wnd.mouse.Read();
+				if (e.GetType() == Mouse::Event::Type::Move) {
+
+					std::ostringstream oss;
+					oss << "Mouse Position: (" << e.GetPosX() << ", " << e.GetPosY() << ")";
+					wnd.SetTitle(oss.str());
+
+				}
+			}
 		}
+
+
 
 		// check if GetMessage call itself borked
 		if( gResult == -1 )

@@ -83,6 +83,7 @@ Window::~Window()
 }
 
 void Window::SetTitle(const std::string& title) {
+
 	if (SetWindowText(hWnd, title.c_str()) == 0)
 	{
 		throw CHWND_LAST_EXCEPT();
