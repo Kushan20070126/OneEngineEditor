@@ -161,6 +161,8 @@
     <Image Include="..\..\..\..\Downloads\one-engine.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="EngineTimer.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="OneEngineException.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -169,7 +171,9 @@
     <ClCompile Include="Keyboard.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="App.h" />
     <ClInclude Include="EditorException.h" />
+    <ClInclude Include="EngineTimer.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Win.h" />
     <ClInclude Include="Window.h" />
