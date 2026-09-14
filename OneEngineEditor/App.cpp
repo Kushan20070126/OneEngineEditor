@@ -2,13 +2,11 @@
 
 App::App()
 	:
-	wnd(800, 600, "Engine Window 2")
+	wnd(1080, 720, "Engine Window 2")
 {}
 
 int App::Go()
 {
-
-
 	while (true)
 	{
 		if (const auto ecode = Window::ProcessMessages())
@@ -18,7 +16,6 @@ int App::Go()
 		}
 		DoFrame();
 	}
-
 }
 
 void App::DoFrame() {
